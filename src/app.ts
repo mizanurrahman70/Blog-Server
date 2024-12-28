@@ -9,6 +9,9 @@ const app : Application = express()
 //parser
 app.use(express.json())
 app.use(cors())
+app.get('/', (req : Request, res: Response) => {
+    res.send('Alhamdulillah Blog is running!')
+})
 
 //application routes
 app.use('/api', UserRoutes);
@@ -17,8 +20,6 @@ app.use('/api', BlogRoutes);
 app.use(globalErrorHandler);
 
 
-app.get('/', (req : Request, res: Response) => {
-    res.send('Alhamdulillah Blog is running!')
-})
+
 
 export default app;

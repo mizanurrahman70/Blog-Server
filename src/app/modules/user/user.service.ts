@@ -20,19 +20,13 @@ export const loginUser = async (email: string, password: string): Promise<IUser 
 };
 
 export const blockUserInDb = async (userId: string) => {
-  // Ensure userId is a valid MongoDB ObjectId
   if (!Types.ObjectId.isValid(userId)) {
     throw new Error('Invalid user ID');
   }
-
   const user = await User.findById(userId);
-
-  // Check if the user exists
   if (!user) {
     throw new Error('User not found');
   }
-
-  // Update the isBlocked property
   user.isBlocked = true;
   await user.save();
 };

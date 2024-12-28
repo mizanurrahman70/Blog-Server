@@ -13,7 +13,7 @@ app.use(cors())
 //application routes
 app.use('/api', UserRoutes);
 app.use('/api', BlogRoutes);
-
+// @ts-ignore
 app.use(globalErrorHandler);
 
 
